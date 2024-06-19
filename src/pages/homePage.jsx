@@ -5,16 +5,17 @@ import "swiper/css/effect-creative";
 import { Navigation, Pagination, EffectCreative } from "swiper/modules";
 import products from "../api/products.json";
 import ProductItem from "../component/productItem/ProductItem";
-
+import useCart from "../hook/useCart";
 
 const HomePage = () => {
-
   const [listLayout, setListLayout] = useState(4);
   const [activeButton, setActiveButton] = useState(4);
   const handleChangeLayout = (layout) => {
     setListLayout(layout);
     setActiveButton(layout);
   };
+
+  const { addToCart } = useCart();
 
   return (
     <>
@@ -132,7 +133,7 @@ const HomePage = () => {
                 >
                   {products.map((item, index) => (
                     <Fragment key={item?.id}>
-                      <ProductItem dataItem={item}/>
+                      <ProductItem dataItem={item} addToCart={addToCart} />
                     </Fragment>
                   ))}
                   {/* <div className="pro-item">

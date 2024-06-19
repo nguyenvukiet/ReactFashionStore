@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import useCart  from "../../hook/useCart";
+import useCart from "../../hook/useCart";
 import { Link } from "react-router-dom";
 
 export default function ProductItem(props) {
@@ -20,17 +20,15 @@ export default function ProductItem(props) {
   // console.log(chooseColor)
   const [chooseSize, setChooseSize] = useState();
 
-  const { addToCart } = useCart();
-
   const handleChooseSize = (e) => {
     setChooseSize(e.target.value);
   };
 
   useEffect(() => {
     if (chooseColor && chooseSize) {
-      addToCart(dataItem, chooseColor, chooseSize);
+      props.addToCart(dataItem, chooseColor, chooseSize);
     }
-  }, [chooseColor, chooseSize, dataItem, addToCart]);
+  }, [chooseColor, chooseSize, dataItem]);
 
   return (
     <>
@@ -38,7 +36,7 @@ export default function ProductItem(props) {
         <div className="pro-item">
           <div className="pro-box">
             <div className="pro-img">
-              <Link className="box"  to={`/product/${dataItem.id}`}>
+              <Link className="box" to={`/product/${dataItem.id}`}>
                 <img src={dataItem.img[0].img1} alt="" />
                 <span className=" box-hover">
                   <img src={dataItem.img[1].img2} alt="" />
@@ -72,7 +70,7 @@ export default function ProductItem(props) {
             </div>
             <div className="pro-desc">
               <div className="pro-desc-left">
-                <Link className="pro-name"  to={`/product/${dataItem.id}`}>
+                <Link className="pro-name" to={`/product/${dataItem.id}`}>
                   {dataItem.name}
                 </Link>
                 <div className="pro-price">
@@ -129,7 +127,7 @@ export default function ProductItem(props) {
               <div className="pro-hover">
                 <button
                   className="btn btn-trans full"
-                  onClick={() => addToCart(dataItem)}
+                  onClick={() => props.addToCart(dataItem)}
                 >
                   <span className="text">ADD TO CART</span>
                 </button>

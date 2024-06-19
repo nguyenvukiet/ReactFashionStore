@@ -4,55 +4,52 @@ import PopupLogin from "../popupTemplate/popupLogin";
 import { Link } from "react-router-dom";
 import useCart from "../../hook/useCart";
 
-
-
-
-
 const Header = () => {
   const handleChange = () => {
-    console.log("value input")
+    console.log("value input");
   };
 
-  const { cartItems } = useCart();
+  // const { cartItems } = useCart();
 
   //show mobile nav
   const [openMobile, setOpenMobile] = useState(false);
   const handleClickMobile = () => {
-    setOpenMobile(prevState => !prevState);
-  }
+    setOpenMobile((prevState) => !prevState);
+  };
   const handleCloseMobile = () => {
     setOpenMobile(false);
   };
 
   // show form search---------------------------------------------------------
-  const[openSrch, setOpenSrch] = useState(false);
+  const [openSrch, setOpenSrch] = useState(false);
   const searchRef = useRef(null);
   const buttonRef = useRef(null);
 
   const handleClickSrch = () => {
     // setOpenSrch(prevState => !prevState);
     setOpenSrch(true);
-
-  }
+  };
   const handleCloseSrch = () => {
     setOpenSrch(false);
-  }
+  };
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
-        buttonRef.current && !buttonRef.current.contains(event.target) &&
-        searchRef.current && !searchRef.current.contains(event.target)
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target) &&
+        searchRef.current &&
+        !searchRef.current.contains(event.target)
       ) {
         handleCloseSrch();
       }
     };
 
     // Thêm event listener khi component mount
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
 
     // Dọn dẹp event listener khi component unmount
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -66,10 +63,10 @@ const Header = () => {
     setOpenCart(false);
   };
   useEffect(() => {
-    if (openCart===true) {
-      document.body.classList.add('no-scroll');
+    if (openCart === true) {
+      document.body.classList.add("no-scroll");
     } else {
-      document.body.classList.remove('no-scroll');
+      document.body.classList.remove("no-scroll");
     }
   }, [openCart]);
 
@@ -77,26 +74,31 @@ const Header = () => {
   const [openLogin, setOpenLogin] = useState(false);
   const handleClickLogin = () => {
     setOpenLogin(true);
-  }
+  };
   const handleCloseLogin = () => {
     setOpenLogin(false);
-  }
+  };
   useEffect(() => {
-    if (openLogin===true) {
-      document.body.classList.add('no-scroll');
+    if (openLogin === true) {
+      document.body.classList.add("no-scroll");
     } else {
-      document.body.classList.remove('no-scroll');
+      document.body.classList.remove("no-scroll");
     }
   }, [openLogin]);
 
   return (
-    <header className={`header ${openSrch ? 'show-form' : ''}`}>
+    <header className={`header ${openSrch ? "show-form" : ""}`}>
       <div className="header-wrapper">
         <div className="container">
           <div className="header-wrap">
             <div className="header-burger">
-              <button className={`hamburger ${openMobile ? 'active' : ''}`} id="hamburger" onClick={handleClickMobile} ref={buttonRef} >
-                <img src='/hamburger.svg' alt="" />
+              <button
+                className={`hamburger ${openMobile ? "active" : ""}`}
+                id="hamburger"
+                onClick={handleClickMobile}
+                ref={buttonRef}
+              >
+                <img src="/hamburger.svg" alt="" />
                 <span className="icon-close">
                   <img src="/close.png" alt="" />
                 </span>
@@ -128,25 +130,34 @@ const Header = () => {
                         </Link>
                       </li>
                       <li className="menu-item">
-                        <Link className="menu-link"  to="/about">
+                        <Link className="menu-link" to="/about">
                           ABOUT
                         </Link>
                       </li>
                       <li className="menu-item">
-                        <Link className="menu-link" to="/">PRODUCTS</Link>
+                        <Link className="menu-link" to="/">
+                          PRODUCTS
+                        </Link>
                       </li>
                       <li className="menu-item">
-                        <Link className="menu-link" to="/blog">BLOG</Link>
+                        <Link className="menu-link" to="/blog">
+                          BLOG
+                        </Link>
                       </li>
                       <li className="menu-item">
-                        <Link className="menu-link" to="/">CONTACT</Link>
+                        <Link className="menu-link" to="/">
+                          CONTACT
+                        </Link>
                       </li>
                     </ul>
                   </div>
                 </div>
               </nav>
               <div className="header-control">
-                <button className="header-btn-search header-action" onClick={handleClickSrch}>
+                <button
+                  className="header-btn-search header-action"
+                  onClick={handleClickSrch}
+                >
                   <div className="header-action-icon">
                     <span className="icon">
                       <img src="/search.svg" alt="" />
@@ -172,15 +183,18 @@ const Header = () => {
                     <span className="icon">
                       <img src="/cart.svg" alt="" />
                     </span>
-                    <span className="text">{cartItems.length}</span>
+                    <span className="text">{1}</span>
                   </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className={`mobile-overlay ${openMobile ? 'open' : ''}`} onClick={handleCloseMobile}></div>
-        <div className={`mobile ${openMobile ? 'open' : ''}`}>
+        <div
+          className={`mobile-overlay ${openMobile ? "open" : ""}`}
+          onClick={handleCloseMobile}
+        ></div>
+        <div className={`mobile ${openMobile ? "open" : ""}`}>
           <div className="mobile-con">
             <button className="mobile-close" onClick={handleCloseMobile}>
               <img src="/close.png" alt="" />
@@ -189,65 +203,54 @@ const Header = () => {
               <div className="mobile-nav">
                 <ul className="menu-list">
                   <li className="menu-item">
-                    
                     <a className="menu-link" href="/">
                       HOME
                     </a>
                     <span className="show-sub-menu-js icon">
-                      
                       <i className="fa-solid fa-chevron-right"></i>
                     </span>
                   </li>
                   <li className="menu-item">
-              
                     <a className="menu-link" href="/">
                       ABOUT
                     </a>
                     <span className="show-sub-menu-js icon">
-                      
                       <i className="fa-solid fa-chevron-right"></i>
                     </span>
                   </li>
                   <li className="menu-item">
-                 
                     <a className="menu-link" href="/">
                       PRODUCTS
                     </a>
                     <span className="show-sub-menu-js icon">
-                   
                       <i className="fa-solid fa-chevron-right"></i>
                     </span>
                   </li>
                   <li className="menu-item">
-                   
                     <a className="menu-link" href="/">
                       BLOG
                     </a>
                     <span className="show-sub-menu-js icon">
-                     
                       <i className="fa-solid fa-chevron-right"></i>
                     </span>
                   </li>
                   <li className="menu-item">
-                
                     <a className="menu-link" href="/">
                       CONTACT
                     </a>
                     <span className="show-sub-menu-js icon">
-                   
                       <i className="fa-solid fa-chevron-right"></i>
                     </span>
                   </li>
                 </ul>
                 <div className="mobile-nav-btn">
-         
                   <a className="link" href="/">
                     SHOP ALL PRODUCTS
                   </a>
                 </div>
               </div>
             </div>
-        
+
             <div className="mobile-contact">
               <ul className="menu-list">
                 <li className="menu-item">
@@ -277,7 +280,6 @@ const Header = () => {
                 </li>
               </ul>
               <div className="footer-social">
-                
                 <a className="footer-social-link" href="/">
                   <img src="/fb.svg" alt="" />
                 </a>
@@ -287,7 +289,7 @@ const Header = () => {
         </div>
       </div>
       {openSrch && (
-        <div className="header-sform" ref={searchRef} >
+        <div className="header-sform" ref={searchRef}>
           <button className="header-sform-close" onClick={handleCloseSrch}>
             <span className="text">Đóng</span>
           </button>
@@ -295,7 +297,11 @@ const Header = () => {
             <div className="header-sform-inner">
               <form action="">
                 <div className="header-sform-input">
-                  <input onChange={handleChange} type="text" placeholder="Nhập từ khóa..." />
+                  <input
+                    onChange={handleChange}
+                    type="text"
+                    placeholder="Nhập từ khóa..."
+                  />
                   <button className="btn btn-pri" type="submit">
                     <span className="text">Tìm kiếm</span>
                   </button>
@@ -308,44 +314,79 @@ const Header = () => {
 
       <PopupCart openCart={openCart} handleCloseCart={handleCloseCart} />
 
-      <div className="popup popup-cart popup-cart-update" data-popup-id="updateCart-popup">
+      <div
+        className="popup popup-cart popup-cart-update"
+        data-popup-id="updateCart-popup"
+      >
         <div className="popup-overlay"></div>
         <div className="popup-main">
-          <div className="popup-close"><i className="fas fa-times icon"></i></div>
+          <div className="popup-close">
+            <i className="fas fa-times icon"></i>
+          </div>
           <div className="popup-over">
             <div className="popup-wrapper">
-              <div className="popup-cart-inner"> 
+              <div className="popup-cart-inner">
                 <p className="title fw-6">SHOPPING CART</p>
-                <div className="popup-cart-list"> 
+                <div className="popup-cart-list">
                   <div className="cmini-list">
-                    <div className="cmini-item">   
-                      <div className="cmini-box"> 
-                        <div className="cmini-img"><a className="box" href="/"> <img src="/cmini.jpg" alt=""/></a></div>
-                        <div className="cmini-desc"> 
-                          <div className="cmini-desc-top"> <a className="cmini-name" href="/">VALLAS DRESS</a></div>
-                          <div className="cmini-price"> 
-                            <div className="price"> <span className="price-odd">$230.0</span><span className="price-new">$23.80</span></div>
-                            <p className="cmini-price-tag">(60% off Final Sale)</p>
+                    <div className="cmini-item">
+                      <div className="cmini-box">
+                        <div className="cmini-img">
+                          <a className="box" href="/">
+                            {" "}
+                            <img src="/cmini.jpg" alt="" />
+                          </a>
+                        </div>
+                        <div className="cmini-desc">
+                          <div className="cmini-desc-top">
+                            {" "}
+                            <a className="cmini-name" href="/">
+                              VALLAS DRESS
+                            </a>
+                          </div>
+                          <div className="cmini-price">
+                            <div className="price">
+                              {" "}
+                              <span className="price-odd">$230.0</span>
+                              <span className="price-new">$23.80</span>
+                            </div>
+                            <p className="cmini-price-tag">
+                              (60% off Final Sale)
+                            </p>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="popup-cart-option"> 
+                <div className="popup-cart-option">
                   <div className="popup-cart-ubox">
                     <p className="fw-6 txt">Choose Color</p>
                     <div className="cmini-option-row option-color">
                       <div className="recheck">
                         <div className="recheck-block">
                           <div className="recheck-item">
-                            <input onChange={handleChange} className="recheck-input" type="radio" name="" hidden=""/>
-                            <div className="recheck-checkbox"><img src="/mau1.jpg" alt=""/>
+                            <input
+                              onChange={handleChange}
+                              className="recheck-input"
+                              type="radio"
+                              name=""
+                              hidden=""
+                            />
+                            <div className="recheck-checkbox">
+                              <img src="/mau1.jpg" alt="" />
                             </div>
                           </div>
                           <div className="recheck-item">
-                            <input onChange={handleChange} className="recheck-input" type="radio" name="" hidden/>
-                            <div className="recheck-checkbox"><img src="/mau2.jpg" alt=""/>
+                            <input
+                              onChange={handleChange}
+                              className="recheck-input"
+                              type="radio"
+                              name=""
+                              hidden
+                            />
+                            <div className="recheck-checkbox">
+                              <img src="/mau2.jpg" alt="" />
                             </div>
                           </div>
                         </div>
@@ -358,20 +399,52 @@ const Header = () => {
                       <div className="recheck">
                         <div className="recheck-block">
                           <div className="recheck-item">
-                            <input onChange={handleChange} className="recheck-input" type="radio" name="" hidden=""/>
-                            <div className="recheck-checkbox"><span className="txt">XS</span></div>
+                            <input
+                              onChange={handleChange}
+                              className="recheck-input"
+                              type="radio"
+                              name=""
+                              hidden=""
+                            />
+                            <div className="recheck-checkbox">
+                              <span className="txt">XS</span>
+                            </div>
                           </div>
                           <div className="recheck-item">
-                            <input onChange={handleChange} className="recheck-input" type="radio" name="" hidden=""/>
-                            <div className="recheck-checkbox"><span className="txt">S</span></div>
+                            <input
+                              onChange={handleChange}
+                              className="recheck-input"
+                              type="radio"
+                              name=""
+                              hidden=""
+                            />
+                            <div className="recheck-checkbox">
+                              <span className="txt">S</span>
+                            </div>
                           </div>
                           <div className="recheck-item">
-                            <input onChange={handleChange} className="recheck-input" type="radio" name="" hidden=""/>
-                            <div className="recheck-checkbox"><span className="txt">M</span></div>
+                            <input
+                              onChange={handleChange}
+                              className="recheck-input"
+                              type="radio"
+                              name=""
+                              hidden=""
+                            />
+                            <div className="recheck-checkbox">
+                              <span className="txt">M</span>
+                            </div>
                           </div>
                           <div className="recheck-item">
-                            <input onChange={handleChange} className="recheck-input" type="radio" name="" hidden=""/>
-                            <div className="recheck-checkbox"><span className="txt">L</span></div>
+                            <input
+                              onChange={handleChange}
+                              className="recheck-input"
+                              type="radio"
+                              name=""
+                              hidden=""
+                            />
+                            <div className="recheck-checkbox">
+                              <span className="txt">L</span>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -382,20 +455,33 @@ const Header = () => {
                     <div className="quantity">
                       <div className="quantity-count">
                         <div className="count">
-                          <div className="count-btn count-minus"><i className="fas fa-minus icon"></i></div>
-                          <input onChange={handleChange} className="count-input" type="text" value="1" max="99" min="0" hidden/>
+                          <div className="count-btn count-minus">
+                            <i className="fas fa-minus icon"></i>
+                          </div>
+                          <input
+                            onChange={handleChange}
+                            className="count-input"
+                            type="text"
+                            value="1"
+                            max="99"
+                            min="0"
+                            hidden
+                          />
                           <p className="count-number">1</p>
-                          <div className="count-btn count-plus"><i className="fas fa-plus icon"></i></div>
+                          <div className="count-btn count-plus">
+                            <i className="fas fa-plus icon"></i>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="popup-cart-ctn"> 
-                  <div className="popup-cart-control">    
-                    <div className="popup-cart-price"> 
-                      <div className="popup-cart-left"> 
-                        <div className="txt">TOTAL
+                <div className="popup-cart-ctn">
+                  <div className="popup-cart-control">
+                    <div className="popup-cart-price">
+                      <div className="popup-cart-left">
+                        <div className="txt">
+                          TOTAL
                           <p className="t12 c-grey">VAT Included</p>
                         </div>
                       </div>
@@ -403,7 +489,11 @@ const Header = () => {
                         <p className="txt">$23.80</p>
                       </div>
                     </div>
-                    <div className="popup-cart-btn"> <button className="btn full btn-pri" href="/"><span className="text">APPLY</span></button>
+                    <div className="popup-cart-btn">
+                      {" "}
+                      <button className="btn full btn-pri" href="/">
+                        <span className="text">APPLY</span>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -413,10 +503,7 @@ const Header = () => {
         </div>
       </div>
       <PopupLogin openLogin={openLogin} handleCloseLogin={handleCloseLogin} />
-
-
     </header>
-    
   );
 };
 

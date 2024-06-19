@@ -1,14 +1,10 @@
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import useCart from "../../hook/useCart";
+import { useState } from "react";
 
 const PopupCart = ({ openCart, handleCloseCart }) => {
-  const { 
-    cartItems,
-    increaseItems,
-    decreaseItems,
-    removeItems,
-    totalPrice,
-  } = useCart();
+  const { cartItems, increaseItems, decreaseItems, removeItems, totalPrice } =
+    useCart(openCart);
 
   return (
     <div className={`popup popup-cart ${openCart ? "open" : ""}`}>
@@ -41,9 +37,14 @@ const PopupCart = ({ openCart, handleCloseCart }) => {
                                 </div>
                                 <div className="cmini-desc">
                                   <div className="cmini-desc-top">
-                                    <a className="cmini-name" href="/">{item.name}</a>
+                                    <a className="cmini-name" href="/">
+                                      {item.name}
+                                    </a>
                                     <div className="cmini-desc-control">
-                                      <button className="cmini-remove" onClick={() => removeItems(item)}>
+                                      <button
+                                        className="cmini-remove"
+                                        onClick={() => removeItems(item)}
+                                      >
                                         <i className="fa-regular fa-trash-can"></i>
                                       </button>
                                     </div>
@@ -52,11 +53,15 @@ const PopupCart = ({ openCart, handleCloseCart }) => {
                                     <div className="cmini-option-txt">
                                       <div className="cmini-option-op">
                                         <span className="sub">Color: </span>
-                                        <span className="txt">{item.color_name}</span>
+                                        <span className="txt">
+                                          {item.color_name}
+                                        </span>
                                       </div>
                                       <div className="cmini-option-op">
                                         <span className="sub">Size: </span>
-                                        <span className="txt">{item.size_name}</span>
+                                        <span className="txt">
+                                          {item.size_name}
+                                        </span>
                                       </div>
                                     </div>
                                   </div>
@@ -64,11 +69,19 @@ const PopupCart = ({ openCart, handleCloseCart }) => {
                                     <div className="quantity">
                                       <div className="quantity-count">
                                         <div className="count">
-                                          <button className="count-btn count-minus" onClick={() => decreaseItems(item)}>
+                                          <button
+                                            className="count-btn count-minus"
+                                            onClick={() => decreaseItems(item)}
+                                          >
                                             <i className="fas fa-minus icon"></i>
                                           </button>
-                                          <p className="count-number">{item.quantity}</p>
-                                          <button className="count-btn count-plus" onClick={() => increaseItems(item)}>
+                                          <p className="count-number">
+                                            {item.quantity}
+                                          </p>
+                                          <button
+                                            className="count-btn count-plus"
+                                            onClick={() => increaseItems(item)}
+                                          >
                                             <i className="fas fa-plus icon"></i>
                                           </button>
                                         </div>
@@ -77,7 +90,10 @@ const PopupCart = ({ openCart, handleCloseCart }) => {
                                     <div className="cmini-price">
                                       <div className="price">
                                         <span className="price-new">
-                                          {(item.price * item.quantity).toLocaleString()} {item.currency}
+                                          {(
+                                            item.price * item.quantity
+                                          ).toLocaleString()}{" "}
+                                          {item.currency}
                                         </span>
                                       </div>
                                     </div>
@@ -117,7 +133,10 @@ const PopupCart = ({ openCart, handleCloseCart }) => {
                   <div className="cart-empty-img">
                     <img src="/shopping.png" alt="" />
                   </div>
-                  <button className="cart-empty-btn btn btn-pri full mt-20" onClick={handleCloseCart}>
+                  <button
+                    className="cart-empty-btn btn btn-pri full mt-20"
+                    onClick={handleCloseCart}
+                  >
                     <span className="text">CONTINUE SHOPPING</span>
                   </button>
                 </div>

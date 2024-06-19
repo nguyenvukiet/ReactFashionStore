@@ -1,13 +1,20 @@
 import { useEffect, useState } from "react";
 
-const useCart = () => {
+const useCart = (openCart) => {
   const initialCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
   const [cartItems, setCartItems] = useState(initialCartItems);
+
+  useEffect(() => {
+    setCartItems(initialCartItems);
+  }, [openCart]);
+
+  console.log("cartItems: ", cartItems);
 
   // Thêm giỏ hàng vào Local Storage sau mỗi lần thay đổi
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
-    console.log("Giỏ hàng đã được cập nhật", cartItems);
+
+    // console.log("Giỏ hàng đã được cập nhật", cartItems);
   }, [cartItems]);
 
   const totalPrice = () => {
@@ -21,12 +28,11 @@ const useCart = () => {
   // hàm add to cart
   const addToCart = (dataItem, chooseColor, chooseSize) => {
     if (dataItem.type === "complie") {
-
-      const chosenVariant = dataItem.variants.find(variant => 
-        variant.color_name === chooseColor && variant.size_name === chooseSize
+      const chosenVariant = dataItem.variants.find(
+        (variant) =>
+          variant.color_name === chooseColor && variant.size_name === chooseSize
       );
       console.log(chooseColor);
-
       if (chosenVariant) {
         let itemExists = false;
         const updatedCart = cartItems.map((item) => {
@@ -36,7 +42,6 @@ const useCart = () => {
           }
           return item;
         });
-
         if (!itemExists) {
           setCartItems([...updatedCart, { ...chosenVariant, quantity: 1 }]);
         } else {
@@ -48,23 +53,19 @@ const useCart = () => {
     } else {
       const existingItem = cartItems.find((item) => item.id === dataItem.id);
       if (existingItem) {
-          const updatedCart = cartItems?.map((item) => {
-              if (item.id === dataItem.id) {
-                  return { ...item, quantity: item.quantity + 1 };
-              }
-              return item;
-          });
-          setCartItems(updatedCart);
-          console.log("b");
+        const updatedCart = cartItems?.map((item) => {
+          if (item.id === dataItem.id) {
+            return { ...item, quantity: item.quantity + 1 };
+          }
+          return item;
+        });
+        setCartItems(updatedCart);
       } else {
-        console.log("a");
-        console.log(cartItems);
-        console.log(cartItems);
+        console.log("before: ", cartItems);
         setCartItems([...cartItems, { ...dataItem, quantity: 1 }]);
       }
     }
   };
-
 
   //hàm tăng số lượng
   const increaseItems = (dataItem) => {
