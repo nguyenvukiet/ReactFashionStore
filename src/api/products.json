@@ -1,0 +1,531 @@
+[
+  {
+    "id": "1",
+    "img": [
+      {
+        "img1": "/pro1.jpg"
+      },
+      {
+        "img2": "/pro2.jpg"
+      }
+    ],
+    "name": "Vallas Dress",
+    "price": 109100,
+    "discount": 5,
+    "currency": "Đ",
+    "type": "complie",
+    "sizes": "",
+    "options": {
+      "color": [
+        {
+          "color_name": "Red",
+          "color": "#FF0000"
+        },
+        {
+          "color_name": "Blue",
+          "color": "#3455eb"
+        },
+        {
+          "color_name": "Green",
+          "color": "#3deb34"
+        }
+      ],
+      "size": [
+        {
+          "size_name": "S"
+        },
+        {
+          "size_name": "M"
+        },
+        {
+          "size_name": "L"
+        },
+        {
+          "size_name": "XL"
+        }
+      ]
+    },
+    "variants": [
+      {
+        "id": "11",
+        "img": [
+          {
+            "img1": "/pro2.jpg"
+          },
+          {
+            "img2": "/pro1.jpg"
+          }
+        ],
+        "name": "Vallas Dress",
+        "price": 809100,
+        "currency": "Đ",
+        "type": "simple",
+        "color_name": "Red",
+        "size_name": "S"
+      },
+      {
+        "id": "13",
+        "img": [
+          {
+            "img1": "/pro2.jpg"
+          },
+          {
+            "img2": "/pro1.jpg"
+          }
+        ],
+        "name": "Vallas Dress",
+        "price": 809100,
+        "currency": "Đ",
+        "type": "simple",
+        "color_name": "Red",
+        "size_name": "M"
+      },
+      {
+        "id": "14",
+        "img": [
+          {
+            "img1": "/pro2.jpg"
+          },
+          {
+            "img2": "/pro1.jpg"
+          }
+        ],
+        "name": "Vallas Dress",
+        "price": 809100,
+        "currency": "Đ",
+        "type": "simple",
+        "color_name": "Red",
+        "size_name": "L"
+      },
+      {
+        "id": "15",
+        "img": [
+          {
+            "img1": "/pro2.jpg"
+          },
+          {
+            "img2": "/pro1.jpg"
+          }
+        ],
+        "name": "Vallas Dress",
+        "price": 859100,
+        "currency": "Đ",
+        "type": "simple",
+        "color_name": "Red",
+        "size_name": "XL"
+      },
+      {
+        "id": "12",
+        "img": [
+          {
+            "img1": "/pro2.jpg"
+          },
+          {
+            "img2": "/pro1.jpg"
+          }
+        ],
+        "name": "Vallas Dress Name Simple",
+        "price": 812100,
+        "currency": "Đ",
+        "type": "simple",
+        "color_name": "Blue",
+        "size_name": "S"
+      },
+      {
+        "id": "121",
+        "img": [
+          {
+            "img1": "/pro2.jpg"
+          },
+          {
+            "img2": "/pro1.jpg"
+          }
+        ],
+        "name": "Vallas Dress Name Simple",
+        "price": 812100,
+        "currency": "Đ",
+        "type": "simple",
+        "color_name": "Green",
+        "size_name": "S"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "img": [
+      {
+        "img1": "/pro2.jpg"
+      },
+      {
+        "img2": "/pro1.jpg"
+      }
+    ],
+    "name": "Vallas Dress Name Simple 1",
+    "price": 812100,
+    "discount": 5,
+    "currency": "Đ",
+    "type": "simple",
+    "color": "#FF0000",
+    "color_name": "Green",
+    "size_name": "M"
+  },
+  {
+    "id": "5",
+    "img": [
+      {
+        "img1": "/pro2.jpg"
+      },
+      {
+        "img2": "/pro1.jpg"
+      }
+    ],
+    "name": "Vallas Dress Name Simple 2",
+    "price": 122100,
+    "discount": 1,
+    "currency": "Đ",
+    "type": "simple",
+    "color": "#FF0000",
+    "color_name": "Red",
+    "size_name": "S"
+  },
+  {
+    "id": "3",
+    "img": [
+      {
+        "img1": "/pro2.jpg"
+      },
+      {
+        "img2": "/pro1.jpg"
+      }
+    ],
+    "name": "Vallas Dress",
+    "price": 909100,
+    "discount": 4,
+    "currency": "Đ",
+    "type": "complie",
+    "options": {
+      "color": [
+        {
+          "color_name": "Red",
+          "color": "#FF0000"
+        },
+        {
+          "color_name": "Blue",
+          "color": "#3455eb"
+        },
+        {
+          "color_name": "Green",
+          "color": "#3deb34"
+        }
+      ],
+      "size": [
+        {
+          "size_name": "S"
+        },
+        {
+          "size_name": "M"
+        },
+        {
+          "size_name": "L"
+        },
+        {
+          "size_name": "XL"
+        }
+      ]
+    },
+    "variants": [
+      {
+        "id": "31",
+        "img": [
+          {
+            "img1": "/pro2.jpg"
+          },
+          {
+            "img2": "/pro1.jpg"
+          }
+        ],
+        "name": "Vallas Dress",
+        "price": 909100,
+        "currency": "Đ",
+        "type": "simple",
+        "color_name": "Green",
+        "size_name": "S"
+      },
+      {
+        "id": "32",
+        "img": [
+          {
+            "img1": "/pro2.jpg"
+          },
+          {
+            "img2": "/pro1.jpg"
+          }
+        ],
+        "name": "Vallas Dress",
+        "price": 989100,
+        "currency": "Đ",
+        "type": "simple",
+        "color_name": "Green",
+        "size_name": "M"
+      },
+      {
+        "id": "33",
+        "img": [
+          {
+            "img1": "/pro2.jpg"
+          },
+          {
+            "img2": "/pro1.jpg"
+          }
+        ],
+        "name": "Vallas Dress",
+        "price": 969100,
+        "currency": "Đ",
+        "type": "simple",
+        "color_name": "Red",
+        "size_name": "S"
+      },
+      {
+        "id": "34",
+        "img": [
+          {
+            "img1": "/pro2.jpg"
+          },
+          {
+            "img2": "/pro1.jpg"
+          }
+        ],
+        "name": "Vallas Dress",
+        "price": 949100,
+        "currency": "Đ",
+        "type": "simple",
+        "color_name": "Red",
+        "size_name": "XL"
+      },
+      {
+        "id": "35",
+        "img": [
+          {
+            "img1": "/pro2.jpg"
+          },
+          {
+            "img2": "/pro1.jpg"
+          }
+        ],
+        "name": "Vallas Dress Name Simple",
+        "price": 818700,
+        "currency": "Đ",
+        "type": "simple",
+        "color_name": "Blue",
+        "size_name": "S"
+      },
+      {
+        "id": "36",
+        "img": [
+          {
+            "img1": "/pro2.jpg"
+          },
+          {
+            "img2": "/pro1.jpg"
+          }
+        ],
+        "name": "Vallas Dress Name Simple",
+        "price": 922100,
+        "currency": "Đ",
+        "type": "simple",
+        "color_name": "Blue",
+        "size_name": "M"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "img": [
+      {
+        "img1": "/pro2.jpg"
+      },
+      {
+        "img2": "/pro1.jpg"
+      }
+    ],
+    "name": "Vallas Dress",
+    "price": 909100,
+    "discount": 2,
+    "currency": "Đ",
+    "type": "complie",
+    "options": {
+      "color": [
+        {
+          "color_name": "Red",
+          "color": "#FF0000"
+        },
+        {
+          "color_name": "Blue",
+          "color": "#3455eb"
+        },
+        {
+          "color_name": "Green",
+          "color": "#3deb34"
+        }
+      ],
+      "size": [
+        {
+          "size_name": "S"
+        },
+        {
+          "size_name": "M"
+        },
+        {
+          "size_name": "L"
+        },
+        {
+          "size_name": "XL"
+        }
+      ]
+    },
+    "variants": [
+      {
+        "id": "41",
+        "img": [
+          {
+            "img1": "/pro2.jpg"
+          },
+          {
+            "img2": "/pro1.jpg"
+          }
+        ],
+        "name": "Vallas Dress",
+        "price": 909100,
+        "currency": "Đ",
+        "type": "simple",
+        "color_name": "Red",
+        "size_name": "S"
+      },
+      {
+        "id": "42",
+        "img": [
+          {
+            "img1": "/pro2.jpg"
+          },
+          {
+            "img2": "/pro1.jpg"
+          }
+        ],
+        "name": "Vallas Dress",
+        "price": 989100,
+        "currency": "Đ",
+        "type": "simple",
+        "color_name": "Green",
+        "size_name": "M"
+      },
+      {
+        "id": "43",
+        "img": [
+          {
+            "img1": "/pro2.jpg"
+          },
+          {
+            "img2": "/pro1.jpg"
+          }
+        ],
+        "name": "Vallas Dress",
+        "price": 969100,
+        "currency": "Đ",
+        "type": "simple",
+        "color_name": "Red",
+        "size_name": "L"
+      },
+      {
+        "id": "44",
+        "img": [
+          {
+            "img1": "/pro2.jpg"
+          },
+          {
+            "img2": "/pro1.jpg"
+          }
+        ],
+        "name": "Vallas Dress",
+        "price": 949100,
+        "currency": "Đ",
+        "type": "simple",
+        "color_name": "Red",
+        "size_name": "XL"
+      },
+      {
+        "id": "45",
+        "img": [
+          {
+            "img1": "/pro2.jpg"
+          },
+          {
+            "img2": "/pro1.jpg"
+          }
+        ],
+        "name": "Vallas Dress Name Simple",
+        "price": 818700,
+        "currency": "Đ",
+        "type": "simple",
+        "color_name": "Blue",
+        "size_name": "M"
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "img": [
+      {
+        "img1": "/ab4.jpg"
+      },
+      {
+        "img2": "/ab5.jpg"
+      }
+    ],
+    "name": "Vallas Dress Name Simple 21233",
+    "price": 122100,
+    "discount": 1,
+    "currency": "Đ",
+    "type": "simple",
+    "color": "#FF0000",
+    "color_name": "Red",
+    "size_name": "L"
+  },
+  {
+    "id": "7",
+    "img": [
+      {
+        "img1": "/ab1.jpg"
+      },
+      {
+        "img2": "/ab2.jpg"
+      }
+    ],
+    "name": "Vallas Dress Name Simple 7",
+    "price": 122100,
+    "discount": 1,
+    "currency": "Đ",
+    "type": "simple",
+    "color": "#3455eb",
+    "color_name": "Blue",
+    "size_name": "S"
+  },
+  {
+    "id": "8",
+    "img": [
+      {
+        "img1": "/ab2.jpg"
+      },
+      {
+        "img2": "/ab1.jpg"
+      }
+    ],
+    "name": "Ao Nu Name Simple 8",
+    "price": 122100,
+    "discount": 10,
+    "currency": "Đ",
+    "type": "simple",
+    "color": "#FF0000",
+    "color_name": "Red",
+    "size_name": "XL"
+  }
+]
