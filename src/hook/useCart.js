@@ -1,20 +1,16 @@
-import { useEffect, useState } from "react";
+import React, { createContext, useState, useEffect } from 'react';
 
-const useCart = (openCart) => {
+export const CartContext = createContext();
+
+export const CartProvider = ({ children }) => {
   const initialCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
   const [cartItems, setCartItems] = useState(initialCartItems);
-
-  useEffect(() => {
-    setCartItems(initialCartItems);
-  }, [openCart]);
 
   console.log("cartItems: ", cartItems);
 
   // Thêm giỏ hàng vào Local Storage sau mỗi lần thay đổi
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
-
-    // console.log("Giỏ hàng đã được cập nhật", cartItems);
   }, [cartItems]);
 
   const totalPrice = () => {
@@ -25,6 +21,10 @@ const useCart = (openCart) => {
     return total.toLocaleString();
   };
 
+  const totalQuantity = () => {
+    return cartItems.reduce((accumulator, item) => accumulator + item.quantity, 0);
+  };
+
   // hàm add to cart
   const addToCart = (dataItem, chooseColor, chooseSize) => {
     if (dataItem.type === "complie") {
@@ -32,7 +32,6 @@ const useCart = (openCart) => {
         (variant) =>
           variant.color_name === chooseColor && variant.size_name === chooseSize
       );
-      console.log(chooseColor);
       if (chosenVariant) {
         let itemExists = false;
         const updatedCart = cartItems.map((item) => {
@@ -47,8 +46,9 @@ const useCart = (openCart) => {
         } else {
           setCartItems(updatedCart);
         }
+        alert("Thêm vào giỏ hàng thành công Màu: "+chooseColor + " Color: " +chooseSize );
       } else {
-        alert("Không tìm thấy biến thể phù hợp!");
+        alert("Sản phẩm hết hàng mời bạn chọn màu hoặc size khác!");
       }
     } else {
       const existingItem = cartItems.find((item) => item.id === dataItem.id);
@@ -95,15 +95,20 @@ const useCart = (openCart) => {
     setCartItems(updateCart);
   };
 
-  return {
-    cartItems,
-    setCartItems,
-    addToCart,
-    increaseItems,
-    decreaseItems,
-    removeItems,
-    totalPrice,
-  };
+  // return {
+  //   cartItems,
+  //   setCartItems,
+  //   addToCart,
+  //   increaseItems,
+  //   decreaseItems,
+  //   removeItems,
+  //   totalPrice,
+  // };
+  return (
+    <CartContext.Provider value={{ cartItems, addToCart, increaseItems, decreaseItems, removeItems, totalPrice, totalQuantity }}>
+      {children}
+    </CartContext.Provider>
+  );
 };
 
-export default useCart;
+// export default useCart;

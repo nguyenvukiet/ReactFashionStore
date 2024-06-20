@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import useCart from "../../hook/useCart";
 import { Link } from "react-router-dom";
 
 export default function ProductItem(props) {
@@ -43,9 +42,9 @@ export default function ProductItem(props) {
                 </span>
               </Link>
               <div className="pro-hover">
-                <button className="btn btn-trans full">
-                  <span className="text">ADD TO CART</span>
-                </button>
+                <Link className="btn btn-trans full" to={`/product/${dataItem.id}`}>
+                  <span className="text">SEE DETAIL</span>
+                </Link>
                 <div className="cmini-option-row option-size">
                   <div className="recheck">
                     <div className="recheck-block">

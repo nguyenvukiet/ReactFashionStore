@@ -1,10 +1,11 @@
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-import useCart from "../../hook/useCart";
-import { useState } from "react";
+// import useCart from "../../hook/useCart";
+import { CartContext  } from "../../hook/useCart";
+import { useContext } from "react";
+// import { useState } from "react";
 
 const PopupCart = ({ openCart, handleCloseCart }) => {
-  const { cartItems, increaseItems, decreaseItems, removeItems, totalPrice } =
-    useCart(openCart);
+  const { cartItems, increaseItems, decreaseItems, removeItems, totalPrice } =useContext(CartContext);
 
   return (
     <div className={`popup popup-cart ${openCart ? "open" : ""}`}>

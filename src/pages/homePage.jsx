@@ -1,11 +1,13 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useContext, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-creative";
 import { Navigation, Pagination, EffectCreative } from "swiper/modules";
 import products from "../api/products.json";
 import ProductItem from "../component/productItem/ProductItem";
-import useCart from "../hook/useCart";
+// import useCart from "../hook/useCart";
+import { CartContext  } from "../hook/useCart";
+
 
 const HomePage = () => {
   const [listLayout, setListLayout] = useState(4);
@@ -15,7 +17,8 @@ const HomePage = () => {
     setActiveButton(layout);
   };
 
-  const { addToCart } = useCart();
+  // const { addToCart } = useCart();
+  const { addToCart } = useContext(CartContext);
 
   return (
     <>

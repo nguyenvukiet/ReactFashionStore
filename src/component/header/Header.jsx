@@ -1,14 +1,13 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import PopupCart from "../popupTemplate/popupCart";
 import PopupLogin from "../popupTemplate/popupLogin";
 import { Link } from "react-router-dom";
-import useCart from "../../hook/useCart";
+// import useCart from "../../hook/useCart";
+import { CartContext  } from "../../hook/useCart";
+
 
 const Header = () => {
-  const handleChange = () => {
-    console.log("value input");
-  };
-
+  const { totalQuantity } =useContext(CartContext);
   // const { cartItems } = useCart();
 
   //show mobile nav
@@ -183,7 +182,7 @@ const Header = () => {
                     <span className="icon">
                       <img src="/cart.svg" alt="" />
                     </span>
-                    <span className="text">{1}</span>
+                    <span className="text">{totalQuantity()}</span>
                   </button>
                 </div>
               </div>
@@ -298,7 +297,7 @@ const Header = () => {
               <form action="">
                 <div className="header-sform-input">
                   <input
-                    onChange={handleChange}
+                    onChange
                     type="text"
                     placeholder="Nhập từ khóa..."
                   />
@@ -314,194 +313,6 @@ const Header = () => {
 
       <PopupCart openCart={openCart} handleCloseCart={handleCloseCart} />
 
-      <div
-        className="popup popup-cart popup-cart-update"
-        data-popup-id="updateCart-popup"
-      >
-        <div className="popup-overlay"></div>
-        <div className="popup-main">
-          <div className="popup-close">
-            <i className="fas fa-times icon"></i>
-          </div>
-          <div className="popup-over">
-            <div className="popup-wrapper">
-              <div className="popup-cart-inner">
-                <p className="title fw-6">SHOPPING CART</p>
-                <div className="popup-cart-list">
-                  <div className="cmini-list">
-                    <div className="cmini-item">
-                      <div className="cmini-box">
-                        <div className="cmini-img">
-                          <a className="box" href="/">
-                            {" "}
-                            <img src="/cmini.jpg" alt="" />
-                          </a>
-                        </div>
-                        <div className="cmini-desc">
-                          <div className="cmini-desc-top">
-                            {" "}
-                            <a className="cmini-name" href="/">
-                              VALLAS DRESS
-                            </a>
-                          </div>
-                          <div className="cmini-price">
-                            <div className="price">
-                              {" "}
-                              <span className="price-odd">$230.0</span>
-                              <span className="price-new">$23.80</span>
-                            </div>
-                            <p className="cmini-price-tag">
-                              (60% off Final Sale)
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="popup-cart-option">
-                  <div className="popup-cart-ubox">
-                    <p className="fw-6 txt">Choose Color</p>
-                    <div className="cmini-option-row option-color">
-                      <div className="recheck">
-                        <div className="recheck-block">
-                          <div className="recheck-item">
-                            <input
-                              onChange={handleChange}
-                              className="recheck-input"
-                              type="radio"
-                              name=""
-                              hidden=""
-                            />
-                            <div className="recheck-checkbox">
-                              <img src="/mau1.jpg" alt="" />
-                            </div>
-                          </div>
-                          <div className="recheck-item">
-                            <input
-                              onChange={handleChange}
-                              className="recheck-input"
-                              type="radio"
-                              name=""
-                              hidden
-                            />
-                            <div className="recheck-checkbox">
-                              <img src="/mau2.jpg" alt="" />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="popup-cart-ubox">
-                    <p className="fw-6 txt">Choose Size</p>
-                    <div className="cmini-option-row option-size">
-                      <div className="recheck">
-                        <div className="recheck-block">
-                          <div className="recheck-item">
-                            <input
-                              onChange={handleChange}
-                              className="recheck-input"
-                              type="radio"
-                              name=""
-                              hidden=""
-                            />
-                            <div className="recheck-checkbox">
-                              <span className="txt">XS</span>
-                            </div>
-                          </div>
-                          <div className="recheck-item">
-                            <input
-                              onChange={handleChange}
-                              className="recheck-input"
-                              type="radio"
-                              name=""
-                              hidden=""
-                            />
-                            <div className="recheck-checkbox">
-                              <span className="txt">S</span>
-                            </div>
-                          </div>
-                          <div className="recheck-item">
-                            <input
-                              onChange={handleChange}
-                              className="recheck-input"
-                              type="radio"
-                              name=""
-                              hidden=""
-                            />
-                            <div className="recheck-checkbox">
-                              <span className="txt">M</span>
-                            </div>
-                          </div>
-                          <div className="recheck-item">
-                            <input
-                              onChange={handleChange}
-                              className="recheck-input"
-                              type="radio"
-                              name=""
-                              hidden=""
-                            />
-                            <div className="recheck-checkbox">
-                              <span className="txt">L</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="popup-cart-ubox">
-                    <p className="fw-6 txt">Choose Quantity</p>
-                    <div className="quantity">
-                      <div className="quantity-count">
-                        <div className="count">
-                          <div className="count-btn count-minus">
-                            <i className="fas fa-minus icon"></i>
-                          </div>
-                          <input
-                            onChange={handleChange}
-                            className="count-input"
-                            type="text"
-                            value="1"
-                            max="99"
-                            min="0"
-                            hidden
-                          />
-                          <p className="count-number">1</p>
-                          <div className="count-btn count-plus">
-                            <i className="fas fa-plus icon"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="popup-cart-ctn">
-                  <div className="popup-cart-control">
-                    <div className="popup-cart-price">
-                      <div className="popup-cart-left">
-                        <div className="txt">
-                          TOTAL
-                          <p className="t12 c-grey">VAT Included</p>
-                        </div>
-                      </div>
-                      <div className="popup-cart-right">
-                        <p className="txt">$23.80</p>
-                      </div>
-                    </div>
-                    <div className="popup-cart-btn">
-                      {" "}
-                      <button className="btn full btn-pri" href="/">
-                        <span className="text">APPLY</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <PopupLogin openLogin={openLogin} handleCloseLogin={handleCloseLogin} />
     </header>
   );
