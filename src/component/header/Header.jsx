@@ -292,22 +292,28 @@ const Header = () => {
           <button className="header-sform-close" onClick={handleCloseSrch}>
             <span className="text">Đóng</span>
           </button>
-          <div className="container">
-            <div className="header-sform-inner">
-              <form action="">
-                <div className="header-sform-input">
-                  <input
-                    onChange
-                    type="text"
-                    placeholder="Nhập từ khóa..."
-                  />
-                  <button className="btn btn-pri" type="submit">
-                    <span className="text">Tìm kiếm</span>
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
+          <div className="header-srch-box"> 
+                        <div className="header-srch-input">
+                          <input handleChange type="text" placeholder="What are you looking for?" title="What are you looking for?"/>
+                          <button className="btn btn-trans" type="submit"><span className="icon"><i className="fa-light fa-magnifying-glass"></i></span></button>
+                        </div>
+                        <div className="header-srch-re"> 
+                          <div className="header-srch-list"> 
+                            <div className="cmini-item">   
+                              <div className="cmini-box"> 
+                                <div className="cmini-img"><a className="box" href="/"> <img src="./cmini.jpg" alt=""/></a></div>
+                                <div className="cmini-desc"> 
+                                  <div className="cmini-desc-top"> <a className="cmini-name" href="/">VALLAS DRESS </a></div>
+                                  <div className="cmini-price"> 
+                                    <div className="price"> <span className="price-odd">$230.0</span><span className="price-new">$23.80</span></div>
+                                    <p className="cmini-price-tag">(60% off Final Sale)</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
         </div>
       )}
 

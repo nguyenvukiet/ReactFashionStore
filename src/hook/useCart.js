@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
+import { success } from '../component/noti/useNoti';
 
 export const CartContext = createContext();
 
@@ -6,7 +7,6 @@ export const CartProvider = ({ children }) => {
   const initialCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
   const [cartItems, setCartItems] = useState(initialCartItems);
 
-  console.log("cartItems: ", cartItems);
 
   // Thêm giỏ hàng vào Local Storage sau mỗi lần thay đổi
   useEffect(() => {
@@ -46,7 +46,7 @@ export const CartProvider = ({ children }) => {
         } else {
           setCartItems(updatedCart);
         }
-        alert("Thêm vào giỏ hàng thành công Màu: "+chooseColor + " Color: " +chooseSize );
+        success();
       } else {
         alert("Sản phẩm hết hàng mời bạn chọn màu hoặc size khác!");
       }
@@ -61,9 +61,9 @@ export const CartProvider = ({ children }) => {
         });
         setCartItems(updatedCart);
       } else {
-        console.log("before: ", cartItems);
         setCartItems([...cartItems, { ...dataItem, quantity: 1 }]);
       }
+      success();
     }
   };
 
@@ -95,15 +95,6 @@ export const CartProvider = ({ children }) => {
     setCartItems(updateCart);
   };
 
-  // return {
-  //   cartItems,
-  //   setCartItems,
-  //   addToCart,
-  //   increaseItems,
-  //   decreaseItems,
-  //   removeItems,
-  //   totalPrice,
-  // };
   return (
     <CartContext.Provider value={{ cartItems, addToCart, increaseItems, decreaseItems, removeItems, totalPrice, totalQuantity }}>
       {children}

@@ -8,7 +8,7 @@ import LightGalleryComponent from "../component/LightGallery/lightGallery";
 import PopupSizeGuide from "../component/popupTemplate/popupSizeGuide";
 import PopupFeedback from "../component/popupTemplate/popupFeedback";
 import faqItems from "../api/faq.json";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import productItems from "../api/products.json";
 
 const PdpPage = () => {
@@ -240,12 +240,12 @@ const PdpPage = () => {
                             </div>
                           </div>
                           <div className="pdp-control">
-                            <a className="btn btn-trans" href="/">
+                            <button className="btn btn-trans" href="/">
                               <span className="text">ADD TO CART</span>
-                            </a>
-                            <a className="btn btn-pri" href="/">
+                            </button>
+                            <Link className="btn btn-pri" to="/checkout">
                               <span className="text">BUY NOW</span>
-                            </a>
+                            </Link>
                           </div>
                         </>
                       ) : (

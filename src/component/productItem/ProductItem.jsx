@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../hook/useCart";
 
 export default function ProductItem(props) {
-  const { dataItem } = props;
+  const { dataItem } = props; 
+
+  const { addToCart } =useContext(CartContext);
 
   const priceDiscount =
     dataItem.price - (dataItem.variants?.[0].price * dataItem.discount) / 100;
@@ -25,7 +28,7 @@ export default function ProductItem(props) {
 
   useEffect(() => {
     if (chooseColor && chooseSize) {
-      props.addToCart(dataItem, chooseColor, chooseSize);
+      addToCart(dataItem, chooseColor, chooseSize);
     }
   }, [chooseColor, chooseSize, dataItem]);
 
@@ -86,7 +89,7 @@ export default function ProductItem(props) {
                 </div>
               </div>
               <div className="pro-desc-right">
-                <p className="txt">CARA CLUB</p>
+                <p className="txt">COLOR</p>
                 <div className="cmini-option-row option-color">
                   <div className="recheck">
                     <div className="recheck-block">
@@ -122,7 +125,7 @@ export default function ProductItem(props) {
                 <span className=" box-hover">
                   <img src={dataItem.img[1].img2} alt="" />
                 </span>
-              </Link>
+              </Link> 
               <div className="pro-hover">
                 <button
                   className="btn btn-trans full"
